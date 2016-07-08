@@ -24,4 +24,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.0.1'
     // Added for AdMob
     compile 'com.google.android.gms:play-services:8.4.0'
+    // Java lib
+    compile project(':jokewizard')
 }
