@@ -9,7 +9,8 @@ package com.ratik.builditbigger.jokebackend;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
-import com.ratik.JokeWizard;
+
+import javax.inject.Named;
 
 /** An endpoint class we are exposing */
 @Api(
@@ -23,12 +24,12 @@ import com.ratik.JokeWizard;
 )
 public class MyEndpoint {
 
-    /** A simple endpoint method that returns a joke **/
-    @ApiMethod(name = "getJoke")
-    public MyBean getJoke() {
+    /** A simple endpoint method that takes a name and says Hi back */
+    @ApiMethod(name = "sayHi")
+    public MyBean sayHi(@Named("name") String name) {
         MyBean response = new MyBean();
-        JokeWizard jokeWizard = new JokeWizard();
-        response.setData(jokeWizard.getJoke());
+        response.setData("Hi, " + name);
+
         return response;
     }
 
