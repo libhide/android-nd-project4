@@ -41,11 +41,6 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void tellJoke(View view) {
-        // Intent
-        // Intent intent = new Intent(MainActivity.this, JokeActivity.class);
-        // intent.putExtra("joke", joke);
-        // startActivity(intent);
-
         new FetchJokeTask().execute(this);
     }
 }
