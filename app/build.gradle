@@ -10,6 +10,8 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "com.android.test.runner.MultiDexTestRunner"
     }
     buildTypes {
         release {
@@ -20,10 +22,8 @@ android {
 }
 
 dependencies {
+    testCompile 'junit:junit:4.12'
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    // Added for AdMob
-    // Java lib
-    compile project(':jokewizard')
     compile project(':jokedroid')
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'com.google.android.gms:play-services:9.2.0'
