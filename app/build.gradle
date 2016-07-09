@@ -19,13 +19,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    productFlavors {
+        paid {
+            applicationId "com.udacity.gradle.builditbigger.paid"
+        }
+        free {
+            applicationId "com.udacity.gradle.builditbigger.free"
+        }
+    }
 }
 
 dependencies {
     testCompile 'junit:junit:4.12'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':jokedroid')
-    compile 'com.android.support:appcompat-v7:23.0.1'
-    compile 'com.google.android.gms:play-services:9.2.0'
     compile project(path: ':jokebackend', configuration: 'android-endpoints')
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.google.android.gms:play-services:9.2.0'
+    compile 'com.android.support:support-v4:23.4.0'
 }
