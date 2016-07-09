@@ -13,13 +13,13 @@ import android.text.TextUtils;
  */
 public class JokeTest extends AndroidTestCase implements GetJokeListener {
 
-    private FetchJokeTask fetchJokeTask;
+    private FetchJokeTestTask fetchJokeTask;
     private ConditionVariable waiter;
 
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        fetchJokeTask = new FetchJokeTask(getContext());
+        fetchJokeTask = new FetchJokeTestTask();
         waiter = new ConditionVariable();
     }
 
