@@ -1,5 +1,6 @@
 package com.udacity.gradle.builditbigger;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 
@@ -14,9 +15,23 @@ import java.io.IOException;
  */
 public class FetchJokeTask extends AsyncTask<GetJokeListener, Void, String> {
 
+    private ProgressDialog progressDialog;
     private static MyApi myApiService = null;
     private GetJokeListener listener;
-    private Context context;
+
+    public FetchJokeTask(Context context) {
+        progressDialog = new ProgressDialog(context);
+        progressDialog.setMessage("Calling the comedians...");
+        progressDialog.setCancelable(true);
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        if (!progressDialog.isShowing()) {
+            progressDialog.show();
+        }
+    }
 
     @Override
     protected String doInBackground(GetJokeListener... params) {
@@ -38,6 +53,9 @@ public class FetchJokeTask extends AsyncTask<GetJokeListener, Void, String> {
 
     @Override
     protected void onPostExecute(String joke) {
+        if (progressDialog.isShowing()) {
+            progressDialog.hide();
+        }
         listener.onGetJokeCompleted(joke);
     }
 }

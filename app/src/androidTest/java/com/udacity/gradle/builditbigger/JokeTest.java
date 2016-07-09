@@ -19,7 +19,7 @@ public class JokeTest extends AndroidTestCase implements GetJokeListener {
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        fetchJokeTask = new FetchJokeTask();
+        fetchJokeTask = new FetchJokeTask(getContext());
         waiter = new ConditionVariable();
     }
 

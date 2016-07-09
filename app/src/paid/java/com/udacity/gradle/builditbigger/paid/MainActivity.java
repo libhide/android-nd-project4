@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements GetJokeListener {
     }
 
     public void tellJoke(View view) {
-        new FetchJokeTask().execute(this);
+        new FetchJokeTask(this).execute(this);
     }
 
     @Override

@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements GetJokeListener {
             @Override
             public void onAdClosed() {
                 requestNewInterstitial();
-                new FetchJokeTask().execute(MainActivity.this);
+                new FetchJokeTask(MainActivity.this).execute(MainActivity.this);
             }
         });
         requestNewInterstitial();
