@@ -1,4 +1,4 @@
-# Android Nanodegree Project 3 – Build it Bigger
+# Android Nanodegree Project 4 – Build it Bigger
 
 This project contains an app with multiple flavors that uses
 multiple libraries and Google Could Endpoints. The finished app consists
